@@ -1,0 +1,12 @@
+@keyframes smooth-up-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Ajuste a altura da subida */
+  }
+}
+
+.animate-smooth-up-down {
+  animation: smooth-up-down 4s ease-in-out infinite; /* Duração e easing suave */
+}
