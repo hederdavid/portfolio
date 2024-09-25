@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'royal-blue': '#4169E1',
-        'midnight-blue': '#141c3a'
+        'midnight-blue': '#141c3a',
+        'steel-blue': '#4682B4'
       },
 
       animation: {

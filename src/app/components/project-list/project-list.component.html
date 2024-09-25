@@ -1,5 +1,5 @@
 <section class="container ">
-    <div class="flex flex-col items-center text-center text-midnight-blue pt-20">
+    <div class="flex flex-col items-center text-center text-midnight-blue py-20">
         <h2 class="text-3xl font-bold pb-5">Meus Projetos Recentes</h2>
         <h3>Confira alguns dos projetos em que trabalhei recentemente. Quer ver mais?
              <a href="mailto:hedermd6@gmail.com" class=" relative hover:no-underline text-royal-blue group">
@@ -9,5 +9,32 @@
                 </span>
             </a>
         </h3>
+    </div>
+
+    <div class="flex justify-center items-center flex-col">
+        @for (item of projects(); track $index) {
+            @if (!item.isHovered) {
+                <div class="w-10/12 h-52 rounded-lg flex justify-center items-center mb-3" 
+                     [ngClass]="item.bg" 
+                     (mouseenter)="item.isHovered = true">
+                    <img class="w-64" [src]="item.logo" alt="">
+                </div>
+            } @else {
+                <div class="w-10/12 h-52 rounded-lg flex justify-center items-center mb-3 flex-col bg-midnight-blue" 
+                     (mouseleave)="item.isHovered = false">
+                    <p class="text-white px-10 py-2 text-center">{{ item.description }}</p>
+                    <button class="py-1 px-3 my-2 text-white border-2 border-steel-blue rounded-3xl font-medium hover:bg-steel-blue transition-all duration-300 ease-in-out transform hover:shadow-lg">
+                        <a href="https://book-mark-landing-page-hederdavids-projects.vercel.app/" target="_blank" class="flex items-center gap-2">Visite o Site <span class="text-lg">»</span></a>
+                    </button>
+                    <div class="flex flex-row">
+                        @for (item of item.tecnologies; track $index) {
+                            <img [src]="item" alt="">
+                        }
+
+                    </div>
+                    
+                </div>
+            }
+        }
     </div>
 </section>
